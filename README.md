@@ -61,3 +61,20 @@ Request Body:
   "hobbies": ["reading", "gaming"]
 }
 ```
+Get All Persons
+
+GET /person
+Get Person by ID
+
+GET /person/{personId}
+Update Person
+
+PUT /person/{personId}
+Request Body
+
+```{
+  "name": "John Doe Updated",
+  "age": 31,
+  "hobbies": ["reading", "traveling"]
+}
+```
