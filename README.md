@@ -7,7 +7,7 @@ This project implements a simple CRUD (Create, Read, Update, Delete) API for man
 - [Features](#features)
 - [Technologies](#technologies)
 - [Getting Started](#getting-started)
-- [Access the API](#api-endpoints)
+- [Access the API](#Access-the-API)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Importing and Exporting CSV](#importing-and-exporting-csv)
