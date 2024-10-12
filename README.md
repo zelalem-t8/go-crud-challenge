@@ -38,7 +38,9 @@ This project implements a simple CRUD (Create, Read, Update, Delete) API for man
 
 Make sure you have Go installed on your system. Run the following command to download the necessary packages:
 
-```go get -u github.com/gorilla/mux
+```
+
+go get -u github.com/gorilla/mux
 go get -u github.com/google/uuid
 go get github.com/rs/cors 
 
