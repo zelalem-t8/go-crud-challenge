@@ -8,8 +8,7 @@ This project implements a simple CRUD (Create, Read, Update, Delete) API for man
 - [Technologies](#technologies)
 - [Getting Started](#getting-started)
 - [Access the API](#Access-the-API)
-- [Importing CSV](#importing-csv)
-- [Error Handling](#error-handling)
+- [ CSV Import Endpoints](#CSV-Import-Endpoints)
 - [License](#license)
 
 ## Features
@@ -77,7 +76,7 @@ Request Body
 ```
 Delete Person ;`DELETE /person/{personId}`
 
-## CSV Import/Export Endpoints
+## CSV Import Endpoints
 Import Persons from CSV
 
 POST /person/import
