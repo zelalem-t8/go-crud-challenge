@@ -40,6 +40,8 @@ Make sure you have Go installed on your system. Run the following command to dow
 
 ```go get -u github.com/gorilla/mux
 go get -u github.com/google/uuid
+go get github.com/rs/cors 
+
 ```
 
 3. **Run the application:**
