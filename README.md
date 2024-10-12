@@ -33,7 +33,7 @@ This project implements a simple CRUD (Create, Read, Update, Delete) API for man
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/zelalem-t8/go-crud-challenge.git
    cd <repository-directory>
    ```
 
@@ -47,8 +47,8 @@ go get -u github.com/google/uuid
 
 3. **Run the application:**
 
-To start the server, run:
-`bash go run main.go` 4. **Access the API:**
+To start the server, run:`bash go run main.go` 
+4. **Access the API:**
 _Create Person_
 
 POST /person
