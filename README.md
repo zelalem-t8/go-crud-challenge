@@ -77,3 +77,4 @@ Request Body
   "hobbies": ["reading", "traveling"]
 }
 ```
+Delete Person ;`DELETE /person/{personId}`
