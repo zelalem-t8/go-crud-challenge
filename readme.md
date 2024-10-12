@@ -49,8 +49,9 @@ go get -u github.com/google/uuid
 
 To start the server, run:`bash go run main.go`
 
-4. **Access the API:**
-   _Create Person_
+## **Access the API:**
+
+_Create Person_
 
 POST /person
 Request Body:
@@ -62,18 +63,9 @@ Request Body:
 }
 ```
 
-_Get All Persons_
-
-GET /person
-
-_Get Person by ID_
-
-GET /person/{personId}
-
-_Update Person_
-
-PUT /person/{personId}
-
+Get All Persons `GET /person`
+Get Person by ID `GET /person/{personId}`
+Update Person `PUT /person/{personId}`
 Request Body
 
 ```{
