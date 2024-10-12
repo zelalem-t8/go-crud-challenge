@@ -34,7 +34,7 @@ This project implements a simple CRUD (Create, Read, Update, Delete) API for man
 
    ```bash
    git clone https://github.com/zelalem-t8/go-crud-challenge.git
-   cd go-crud-challenge>
+   cd go-crud-challenge
    ```
 
 2. **Install dependencies:**
