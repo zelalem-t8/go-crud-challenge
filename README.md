@@ -7,7 +7,7 @@ This project implements a simple CRUD (Create, Read, Update, Delete) API for man
 - [Features](#features)
 - [Technologies](#technologies)
 - [Getting Started](#getting-started)
-- [API Endpoints](#api-endpoints)
+- [Access the API](#api-endpoints)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Importing and Exporting CSV](#importing-and-exporting-csv)
@@ -47,9 +47,10 @@ go get -u github.com/google/uuid
 
 3. **Run the application:**
 
-To start the server, run:`bash go run main.go` 
+To start the server, run:`bash go run main.go`
 
-4. **Access the API:**
+## Access the API
+
 _Create Person_
 
 POST /person
@@ -61,15 +62,13 @@ Request Body:
   "hobbies": ["reading", "gaming"]
 }
 ```
-Get All Persons
 
-GET /person
-Get Person by ID
+Get All Persons `GET /person`
 
-GET /person/{personId}
-Update Person
+Get Person by ID `GET /person/{personId}`
 
-PUT /person/{personId}
+Update Person `PUT /person/{personId}`
+
 Request Body
 
 ```{
