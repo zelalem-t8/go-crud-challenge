@@ -24,7 +24,8 @@ func main() {
 	r.HandleFunc("/person/{personId}", pc.Get).Methods("GET")
 	r.HandleFunc("/person/{personId}", pc.Update).Methods("PUT")
 	r.HandleFunc("/person/{personId}", pc.Delete).Methods("DELETE")
-
+	// CSV routes
+	r.HandleFunc("/person/import", pc.ImportFromCSV).Methods("POST")
 	// Handle non-existing routes
 	r.NotFoundHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Endpoint not found", http.StatusNotFound)

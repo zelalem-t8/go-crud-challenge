@@ -1,9 +1,14 @@
 package controller
 
 import (
+	"encoding/csv"
 	"encoding/json"
+	"io"
 	"net/http"
+	"strconv"
+	"strings"
 
+	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	"github.com/zelalem-t8/go-crud-challenge/database"
 	"github.com/zelalem-t8/go-crud-challenge/model"
@@ -86,4 +91,66 @@ func (pc *PersonController) Delete(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.WriteHeader(http.StatusNoContent)
+}
+
+// ImportFromCSV handles the import of persons from a CSV file uploaded by the user.
+func (pc *PersonController) ImportFromCSV(w http.ResponseWriter, r *http.Request) {
+	// Parse the multipart form data (set a maximum file size limit, e.g., 10MB)
+	err := r.ParseMultipartForm(10 << 20) // 10MB
+	if err != nil {
+		http.Error(w, "Unable to parse form data", http.StatusBadRequest)
+		return
+	}
+
+	// Get the file from form input
+	file, _, err := r.FormFile("file")
+	if err != nil {
+		http.Error(w, "Unable to retrieve file from form", http.StatusBadRequest)
+		return
+	}
+	defer file.Close()
+
+	// Create a new CSV reader
+	reader := csv.NewReader(file)
+	// Skip the header row
+	_, err = reader.Read()
+	if err != nil {
+		http.Error(w, "Error reading CSV header", http.StatusBadRequest)
+		return
+	}
+
+	var importedPersons []model.Person
+	// Iterate through the CSV file and parse each row
+	for {
+		line, err := reader.Read()
+		if err == io.EOF {
+			break // End of file
+		}
+		if err != nil {
+			http.Error(w, "Error reading CSV file", http.StatusBadRequest)
+			return
+		}
+
+		// Map CSV fields to the Person model
+		age, err := strconv.Atoi(line[2]) // Convert age to integer
+		if err != nil {
+			http.Error(w, "Invalid age format", http.StatusBadRequest)
+			return
+		}
+
+		person := model.Person{
+			ID:      uuid.NewString(),             // Generate new ID
+			Name:    line[1],                      // Get name from CSV
+			Age:     age,                          // Get age from CSV
+			Hobbies: strings.Split(line[3], ", "), // Split hobbies by ", "
+		}
+
+		// Add the person to the in-memory DB
+		pc.DB.Create(person)
+		importedPersons = append(importedPersons, person)
+	}
+
+	// Return the imported persons
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(importedPersons)
 }
