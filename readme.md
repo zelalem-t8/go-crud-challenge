@@ -1,6 +1,7 @@
 # Go CRUD API for Person Management
 
 This project implements a simple CRUD (Create, Read, Update, Delete) API for managing Person records using Go and an in-memory database. The API provides endpoints to create, retrieve, update, and delete Person objects, as well as import functionality for CSV files.
+https://www.loom.com/share/b9e853659dfd406680e1139dd8744ab9?sid=81bd7b00-72cc-4fec-8a07-a5c8ee1ea704
 
 ## Table of Contents
 
