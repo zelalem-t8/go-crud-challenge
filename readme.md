@@ -1,17 +1,14 @@
 # Go CRUD API for Person Management
 
-This project implements a simple CRUD (Create, Read, Update, Delete) API for managing Person records using Go and an in-memory database. The API provides endpoints to create, retrieve, update, and delete Person objects, as well as import and export functionality for CSV files.
+This project implements a simple CRUD (Create, Read, Update, Delete) API for managing Person records using Go and an in-memory database. The API provides endpoints to create, retrieve, update, and delete Person objects, as well as import functionality for CSV files.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Technologies](#technologies)
 - [Getting Started](#getting-started)
-- [API Endpoints](#api-endpoints)
-- [Usage](#usage)
-- [Testing](#testing)
-- [Importing and Exporting CSV](#importing-and-exporting-csv)
-- [Error Handling](#error-handling)
+- [Access the API](#Access-the-API)
+- [ CSV Import Endpoints](#CSV-Import-Endpoints)
 - [License](#license)
 
 ## Features
@@ -34,22 +31,26 @@ This project implements a simple CRUD (Create, Read, Update, Delete) API for man
 
    ```bash
    git clone https://github.com/zelalem-t8/go-crud-challenge.git
-   cd <repository-directory>
+   cd go-crud-challenge
    ```
 
 2. **Install dependencies:**
 
 Make sure you have Go installed on your system. Run the following command to download the necessary packages:
 
-```go get -u github.com/gorilla/mux
+```
+
+go get -u github.com/gorilla/mux
 go get -u github.com/google/uuid
+go get github.com/rs/cors
+
 ```
 
 3. **Run the application:**
 
 To start the server, run:`bash go run main.go`
 
-## **Access the API:**
+## Access the API
 
 _Create Person_
 
@@ -64,8 +65,11 @@ Request Body:
 ```
 
 Get All Persons `GET /person`
+
 Get Person by ID `GET /person/{personId}`
+
 Update Person `PUT /person/{personId}`
+
 Request Body
 
 ```{
@@ -74,3 +78,13 @@ Request Body
   "hobbies": ["reading", "traveling"]
 }
 ```
+
+Delete Person ;`DELETE /person/{personId}`
+
+## CSV Import Endpoints
+
+Import Persons from CSV
+
+POST /person/import
+Form Data:
+File: CSV file containing persons data with headers: name, age, hobbies.
